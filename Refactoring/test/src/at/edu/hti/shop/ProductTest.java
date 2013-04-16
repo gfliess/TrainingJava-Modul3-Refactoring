@@ -8,9 +8,8 @@ public class ProductTest {
 
 	@Test
 	public void testSetting() throws Exception {
-		Product temp = new Product();
-		temp.setId("1");
-		temp.setName("name");
+		Product temp = new Product("1", "name");
+
 		temp.setPrice(2.0);
 
 		assertEquals("1", temp.getId());

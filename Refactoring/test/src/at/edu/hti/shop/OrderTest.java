@@ -19,7 +19,7 @@ public class OrderTest {
 	public void testAddOrder() throws Exception {
 		Order test = new Order();
 		OrderLine line = new OrderLine();
-		Product p = new Product();
+		Product p = new Product("01","empty");
 
 		line.setProduct(p);
 		line.setCount(1);

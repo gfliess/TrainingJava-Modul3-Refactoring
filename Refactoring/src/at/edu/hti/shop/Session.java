@@ -19,13 +19,7 @@ public class Session
     // Sie müssen relativ viel über Kunden, Produkte und
     // Bestellungen wissen
     Collection<OrderLine> orderLines = customer.getOrder().getOrderLines();
-    // ok ^
-    float sum = 0;
-    for (Iterator<OrderLine> iter = orderLines.iterator(); iter.hasNext();)
-    {
-      OrderLine temp = (OrderLine) iter.next();
-      sum += temp.getProduct().getPrize() * temp.getCount();
-    }
+    float sum = calcPrize(orderLines);
 
     StringBuffer result = new StringBuffer();
     for (Iterator<OrderLine> iter = orderLines.iterator(); iter.hasNext();)
@@ -49,12 +43,7 @@ public class Session
 
     Collection<OrderLine> orderLines = customer.getOrder().getOrderLines();
 
-    float sum = 0;
-    for (Iterator<OrderLine> iter = orderLines.iterator(); iter.hasNext();)
-    {
-      OrderLine temp = (OrderLine) iter.next();
-      sum += temp.getProduct().getPrize() * temp.getCount();
-    }
+    float sum = calcPrize(orderLines);
 
     StringBuffer result = new StringBuffer();
     result.append("<order>");
@@ -76,5 +65,15 @@ public class Session
     System.out.println(rest);
 
   }
+
+private float calcPrize(Collection<OrderLine> orderLines) {
+	float sum = 0;
+    for (Iterator<OrderLine> iter = orderLines.iterator(); iter.hasNext();)
+    {
+      OrderLine temp = (OrderLine) iter.next();
+      sum += temp.getProduct().getPrize() * temp.getCount();
+    }
+	return sum;
+}
 
 }

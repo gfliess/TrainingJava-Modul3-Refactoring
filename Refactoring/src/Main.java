@@ -7,7 +7,6 @@ import java.util.Properties;
 import at.edu.hti.shop.Customer;
 import at.edu.hti.shop.OrderLine;
 import at.edu.hti.shop.Product;
-import at.edu.hti.shop.Session;
 
 /**
  * @author Gerhard Fliess
@@ -17,7 +16,7 @@ public class Main {
 	public static void main(String[] args) {
 		Properties products = null;
 		Customer customer = new Customer();
-		Session session = new Session();
+
 		customer.startsOrder();
 
 		System.out.print("Willkommen bei YASCLS!\n>");
@@ -42,7 +41,7 @@ public class Main {
 				}
 				// print order
 				if ("o".equalsIgnoreCase(line)) {
-					session.printOrder(customer);
+					customer.printOrder();
 					System.out.println("");
 				}
 				// exit
